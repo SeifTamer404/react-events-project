@@ -4,6 +4,7 @@
   padding: 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .list {
@@ -13,10 +14,16 @@
 
 .list a {
   text-decoration: none;
-  color: var(--color-primary-400);
+  color: var(--accent-6);
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
 }
 
 .list a:hover,
 .list a.active {
-  color: var(--color-primary-800);
+  color: var(--foreground);
+  background-color: var(--accent-2);
 }
