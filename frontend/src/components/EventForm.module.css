@@ -1,25 +1,45 @@
 .form {
   max-width: 40rem;
   margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--accent-1);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
 }
 
-.form label,
+.form label {
+  display: block;
+  width: 100%;
+  color: var(--foreground);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
 .form input,
 .form textarea {
   display: block;
   width: 100%;
+  font: inherit;
+  padding: 0.5rem;
+  background-color: var(--accent-1);
+  color: var(--foreground);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: border-color 0.2s ease-in-out;
 }
 
-.form input,
-.form textarea {
-  font: inherit;
-  padding: 0.25rem;
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--success);
 }
 
 .actions {
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
+  margin-top: 1rem;
 }
 
 .actions button {
@@ -27,20 +47,36 @@
   cursor: pointer;
   padding: 0.5rem 1.5rem;
   border-radius: 4px;
-  background-color: var(--color-gray-300);
-  color: var(--color-gray-800);
-  border: none;
+  border: 1px solid transparent;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
 }
 
-.actions button[type='button'] {
+.actions button:disabled {
+  background-color: var(--accent-2);
+  color: var(--accent-4);
+  cursor: not-allowed;
+}
+
+.actions button:not([type="button"]) {
+  background-color: var(--success);
+  color: var(--foreground);
+}
+
+.actions button:not([type="button"]):hover:not(:disabled) {
+  background-color: var(--success-light);
+  box-shadow: 0 2px 4px rgba(0, 112, 243, 0.2);
+}
+
+.actions button[type="button"] {
   background-color: transparent;
-  color: var(--color-gray-300);
+  color: var(--accent-7);
+  border-color: var(--accent-3);
 }
 
-.actions button:hover {
-  background-color: var(--color-primary-300);
-}
-
-.actions button[type='button']:hover {
-  background-color: var(--color-gray-800);
+.actions button[type="button"]:hover:not(:disabled) {
+  background-color: var(--accent-2);
+  color: var(--foreground);
 }

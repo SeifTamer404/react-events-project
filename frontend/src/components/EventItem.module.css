@@ -1,12 +1,26 @@
 .event {
   max-width: 50rem;
   margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--accent-1);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease-in-out;
+}
+
+.event:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
 .event img {
-  width: 30rem;
+  width: 100%;
+  max-width: 30rem;
+  height: auto;
   border-radius: 4px;
+  margin-bottom: 1.5rem;
 }
 
 .actions {
@@ -14,19 +28,40 @@
   gap: 1rem;
   justify-content: center;
   align-items: center;
-  padding: 0;
 }
 
 .actions a,
 .actions button {
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1.5rem;
   text-decoration: none;
   font: inherit;
   cursor: pointer;
+  border-radius: 4px;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+  border: 1px solid var(--accent-3);
+}
+
+.actions a {
+  background-color: var(--accent-2);
+  color: var(--foreground);
+}
+
+.actions a:hover {
+  background-color: var(--accent-3);
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
 }
 
 .actions button {
   background-color: transparent;
-  border: none;
-  color: var(--color-primary-800);
+  color: var(--error);
+  border-color: var(--error);
+}
+
+.actions button:hover {
+  background-color: var(--error-dark);
+  color: var(--foreground);
+  box-shadow: 0 2px 4px rgba(255, 0, 0, 0.2);
 }
