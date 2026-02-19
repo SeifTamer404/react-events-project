@@ -1,6 +1,6 @@
-# React Router Mastery: An Educational Showcase
+# React Router & Authentication Mastery: An Educational Showcase
 
-This project, while appearing as a simple event management application, is a focused and deliberate demonstration of advanced features in React Router. It serves as a technical showcase of modern routing, data fetching, and state management patterns.
+This project, while appearing as a simple event management application, is a focused and deliberate demonstration of advanced features in React Router and Authentication. It serves as a technical showcase of modern routing, data fetching, and state management patterns.
 
 ## Technical Highlights
 
@@ -41,7 +41,20 @@ This project demonstrates a wide range of React Router hooks to manage the appli
 - **`useSubmit`:** Employed for programmatic form submissions, enabling actions like event deletion from a simple button click without a traditional form.
 - **`useFetcher`:** As described above, for background data mutations without navigation.
 - **`useRouteError`:** To display contextual error information.
+- **`useActionData`:** captures validation errors returned from actions, allowing forms to display user-friendly feedback when inputs are invalid.
+- **`useNavigate`:** Used for programmatic navigation, such as cancelling an action and returning to the previous page.
+- **`useSearchParams`:** Manages query parameters (e.g., `?mode=login` vs `signup`) to toggle between authentication modes within the same component.
 - **`json` & `redirect`:** Utility functions used in loaders and actions to create `Response` objects with the correct headers and status codes, simplifying the process of returning data or redirecting the user.
+
+### 5. Authentication & Authorization
+
+The project implements a complete security flow including Authentication (verifying who you are) and Authorization (verifying what you can do), entirely using React Router features.
+
+- **Token Management (Authentication):** Authentication tokens (JWT) are handled via `localStorage`. The root loader retrieves this token, making it accessible to the entire application.
+- **Route Protection (Authorization):** A `checkAuthLoader` function acts as a route guard. It runs before protected routes (like creating or editing events) are rendered. If no valid token exists, it redirects the user to the login page, securing the route at the data-loading level.
+- **Conditional UI (Authorization):** Components like `MainNavigation` and `EventItem` use `useRouteLoaderData` to check for token presence. Authorized actions (like "Edit" and "Delete" buttons) are only rendered for authenticated users.
+- **Token Injection (Authorization):** The `getAuthToken` utility retrieves the token, which is then attached to the `Authorization: Bearer` header in API requests (actions) to authorize write operations on the backend.
+- **Automatic Logout:** The application proactively manages session security by calculating the token's remaining duration. A timer in the root layout automatically triggers a logout action when the token expires.
 
 ## Tech Stack
 

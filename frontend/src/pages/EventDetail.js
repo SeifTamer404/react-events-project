@@ -2,6 +2,7 @@ import { Await, redirect, useRouteLoaderData } from "react-router";
 import EventItem from "../components/EventItem";
 import EventsList from "../components/EventsList";
 import { Suspense } from "react";
+import { getAuthToken } from "../util/auth";
 
 function EventDetailPage() {
   const { event, events } = useRouteLoaderData("event-detail");
@@ -58,6 +59,10 @@ export async function action({ request, params }) {
   const id = params.eventId;
   const response = await fetch("http://localhost:8080/events/" + id, {
     method: request.method,
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + getAuthToken(),
+    },
   });
   if (!response.ok) {
     throw new Response(
