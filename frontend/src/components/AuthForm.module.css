@@ -1,0 +1,62 @@
+.form {
+  max-width: 40rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--accent-1);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.form label,
+.form input,
+.form textarea {
+  display: block;
+  width: 100%;
+}
+.form label {
+  margin-bottom: 0.5rem;
+  color: var(--accent-7);
+  font-weight: bold;
+}
+.form input,
+.form textarea {
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--accent-3);
+  background-color: var(--accent-2);
+  color: var(--foreground);
+}
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1rem;
+}
+.actions button {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  background-color: var(--primary);
+  color: var(--foreground);
+  border: none;
+  transition: background-color 0.2s ease-in-out;
+}
+.actions a {
+  text-decoration: none;
+  background-color: transparent;
+  color: var(--accent-6);
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+.actions button:hover {
+  background-color: var(--accent-5);
+}
+.actions a:hover {
+  background-color: var(--accent-2);
+  color: var(--foreground);
+}
